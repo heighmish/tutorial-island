@@ -1,2 +1,18 @@
-- name: Hello ansible
-  shell: echo "Hello ansible" >> /tmp/log
+- name: Install packages with homebrew
+  homebrew: name={{ item }} state=present
+  with_items:
+    - lazygit
+    - eza
+    - ripgrep
+    - fish
+    - starship
+    - zoxide
+    - mise
+
+
+- name: Install cask applications
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - iterm2
+    - google-chrome
+    - docker
