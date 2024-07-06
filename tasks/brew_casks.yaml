@@ -1,0 +1,7 @@
+- name: Install cask applications
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - iterm2
+    - google-chrome
+    - docker
+    - zed

@@ -1,0 +1,12 @@
+- name: Computer Setup
+  hosts: localhost
+  pre_tasks:
+    - name: Register operating system
+      shell: uname
+      register: operating_system
+  tasks:
+    - name: Install homebrew packages
+      import_tasks: tasks/brew_packages.yaml
+    - name: Install homebrew casks
+      import_tasks: tasks/brew_casks.yaml
+      when: operating_system.stdout == 'Darwin'

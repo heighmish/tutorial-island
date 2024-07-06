@@ -1,6 +1,7 @@
 - name: Install packages with homebrew
   homebrew: name={{ item }} state=present
   with_items:
+    - stow
     - lazygit
     - eza
     - ripgrep
@@ -9,11 +10,3 @@
     - zoxide
     - mise
     - fzf
-
-- name: Install cask applications
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - iterm2
-    - google-chrome
-    - docker
-    - zed
